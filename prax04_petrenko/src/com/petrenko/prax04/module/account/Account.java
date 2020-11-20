@@ -40,7 +40,7 @@ public abstract class Account implements IBaseBankRate {
         showBalance();
     }
 
-    // List Common methods - Transactions
+    // Basic transaction methods
     public void deposit(double deposit) {
         balance = balance + deposit;
         System.out.println("---------------------------------------");
@@ -64,7 +64,7 @@ public abstract class Account implements IBaseBankRate {
         System.out.println("------------------------------------");
     }
 
-    // show common info for both accounts
+    // Show common info for both accounts
     public void showInfo() {
 
         System.out.println("\nAccount Information:\n");
