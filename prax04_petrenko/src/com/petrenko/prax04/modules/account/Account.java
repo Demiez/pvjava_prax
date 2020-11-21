@@ -1,4 +1,4 @@
-package com.petrenko.prax04.module.account;
+package com.petrenko.prax04.modules.account;
 
 import com.petrenko.prax04.interfaces.IBaseBankRate;
 

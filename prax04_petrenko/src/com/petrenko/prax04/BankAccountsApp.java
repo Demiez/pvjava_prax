@@ -1,8 +1,11 @@
 package com.petrenko.prax04;
 
+import com.petrenko.prax04.modules.banking.Banking;
+
 public class BankAccountsApp {
 
     public static void main(String[] args) {
-	// write your code here
+        Banking banking = new Banking();
+        banking.service();
     }
 }
