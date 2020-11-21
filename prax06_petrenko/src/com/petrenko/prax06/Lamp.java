@@ -13,17 +13,15 @@ public class Lamp implements LightSource {
     }
 
     @Override
-    public boolean exist() {
+    public void exist() {
         this.isExistingNow = true;
-        return true;
     }
 
     @Override
-    public boolean fade() {
+    public void fade() {
         this.isExistingNow = false;
         this.lightPowerKv = 0;
         this.form = "broken";
-        return false;
     }
 
     @Override
