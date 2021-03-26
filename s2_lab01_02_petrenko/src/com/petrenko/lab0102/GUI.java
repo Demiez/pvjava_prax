@@ -1,0 +1,162 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class GUI extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private Font defaultFont;
+    private JFrame frame;
+    private JEditorPane textArea;
+    private JTextField status;
+    private JMenuBar menuBar;
+    private JMenu fileMenu, editMenu, helpMenu;
+    private JMenuItem newFile, openFile, saveFile, saveAsFile, copy, cut, paste;
+    private JScrollPane scrollPane;
+
+
+    public GUI() {
+        // Ініціалізація фрейму
+        createFrame();
+
+        //Створення меню бар, айтеми, сети для меню
+        createMenuBar();
+
+        //Ініціалізація text area, статус бару, скрол бару та сетів фрейму
+        createMisc();
+
+    }
+
+    public void createFrame() {
+        frame = new JFrame();
+        frame.setSize(1400, 1000);
+        frame.setTitle("Untitled - РедакторТексту");
+        frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        defaultFont = new Font("Dialog", Font.PLAIN, 22);
+        frame.setFont(defaultFont);
+        frame.setLayout(new BorderLayout());
+
+    }
+
+    public void createMenuBar() {
+        //Створимо меню та засетимо
+        menuBar = new JMenuBar();
+        menuBar.setPreferredSize(new Dimension(300, 35));
+        frame.setJMenuBar(menuBar);
+
+        //Створення JMenu Файл, Редаг and Поміч
+        fileMenu = new JMenu("Файл ");
+        fileMenu.setFont(defaultFont);
+        editMenu = new JMenu("Редаг ");
+        editMenu.setFont(defaultFont);
+        helpMenu = new JMenu("Поміч ");
+        helpMenu.setFont(defaultFont);
+
+        //Додавання JMenus в MenuBar
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+
+        //Створення JMenuItems та налаштування шрифта
+        newFile = new JMenuItem("Новий");
+        newFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
+        newFile.setFont(defaultFont);
+
+        openFile = new JMenuItem("Відкрити");
+        openFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
+        openFile.setFont(defaultFont);
+
+        saveFile = new JMenuItem("Зберегти");
+        saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
+        saveFile.setFont(defaultFont);
+
+        saveAsFile = new JMenuItem("Зберегти Як");
+        saveAsFile.setFont(defaultFont);
+
+        copy = new JMenuItem("Копія");
+        copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
+        copy.setFont(defaultFont);
+
+        cut = new JMenuItem("Вирізати");
+        cut.setFont(defaultFont);
+
+        paste = new JMenuItem("Вставити");
+        paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK));
+        paste.setFont(defaultFont);
+
+        //Встановимо JMenuItems відповідно до JMenus
+        fileMenu.add(newFile);
+        fileMenu.add(openFile);
+        fileMenu.add(saveFile);
+        fileMenu.add(saveAsFile);
+        editMenu.add(copy);
+        editMenu.add(cut);
+        editMenu.add(paste);
+    }
+
+    public void createMisc() {
+
+        status = new JTextField();
+        status.setFont(new Font("Dialog", Font.PLAIN, 20));
+        frame.add(status, BorderLayout.SOUTH);
+
+        textArea = new JEditorPane();
+        textArea.setFont(new Font("Dialog", Font.PLAIN, 26));
+
+        scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        frame.add(scrollPane);
+        frame.setVisible(true);
+    }
+
+
+    //Геттери та сеттери для контролера
+    public JEditorPane getEditorPane() {
+        return this.textArea;
+    }
+
+    public String getText() {
+        return textArea.getText();
+    }
+
+    public void setTextArea(String text) {
+        textArea.setText(text);
+    }
+
+    public void setTitle(String title) {
+        frame.setTitle(title);
+    }
+
+
+    public void displayMessage(String text) {
+        status.setText(text);
+    }
+
+    public void addNewListener(ActionListener newListener) {
+        newFile.addActionListener(newListener);
+    }
+
+    public void addOpenListener(ActionListener openListener) {
+        openFile.addActionListener(openListener);
+    }
+
+    public void addSaveListener(ActionListener saveListener) {
+        saveFile.addActionListener(saveListener);
+    }
+
+    public void addSaveAsListener(ActionListener saveAsListener) {
+        saveAsFile.addActionListener(saveAsListener);
+    }
+
+    public void addCopyListener( ActionListener copyListener) {
+        copy.addActionListener(copyListener);
+    }
+
+    public void addPasteListener(ActionListener pasteListener) {
+        paste.addActionListener(pasteListener);
+    }
+
+    public void addCutListener(ActionListener cutListener) {
+        cut.addActionListener(cutListener);
+    }
+}
