@@ -15,13 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class MyDemoSwing extends JFrame {
+public class StringReader extends JFrame {
 
     public JButton inputButton;
     public JLabel label;
     public JTextField textField;
 
-    public MyDemoSwing(String title) {
+    public StringReader(String title) {
         Scanner s = null;
         try {
             s = new Scanner(new File("text.txt"));
