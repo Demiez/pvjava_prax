@@ -34,7 +34,7 @@ public class ArrayListOps {
     }
 
     private void printList(ArrayList<String> listToPrint) {
-        for(String item: list){
+        for(String item: listToPrint){
             System.out.println(item);
         }
         System.out.println("\n");
