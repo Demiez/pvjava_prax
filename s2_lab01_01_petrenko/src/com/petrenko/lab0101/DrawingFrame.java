@@ -47,7 +47,7 @@ public class DrawingFrame extends JFrame {
 		JButton rectangle = new JButton("4-кутник");
 		rectangle.setPreferredSize(buttonSize);
 
-		JButton circle = new JButton("Круг");
+		JButton circle = new JButton("Коло");
 		circle.setPreferredSize(buttonSize);
 
 		JButton clear = new JButton("Очистка");
@@ -84,7 +84,7 @@ public class DrawingFrame extends JFrame {
 		circle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				canvasEditor.setCurrentShape(new Circle(0,0,60,60));
-				status.setText("Круг обраний");
+				status.setText("Коло обране");
 			}
 		});
 		rectangle.addActionListener(new ActionListener() {

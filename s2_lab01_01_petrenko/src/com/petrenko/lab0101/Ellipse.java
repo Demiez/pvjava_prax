@@ -16,6 +16,4 @@ public class Ellipse extends Shape{
 		g.fillOval(getX()-getWidth()/2, getY()-getHeight()/2, getWidth(), getHeight());
 		
 	}
-	
-
 }
