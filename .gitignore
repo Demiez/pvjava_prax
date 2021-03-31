@@ -23,3 +23,6 @@
 hs_err_pid*
 
 .idea/
+
+# for s2_lab03 exclusion
+!s2_lab03_02_petrenko/mysql-connector-java-8.0.11.jar
