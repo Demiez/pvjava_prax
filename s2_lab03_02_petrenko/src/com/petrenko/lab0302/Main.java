@@ -16,9 +16,9 @@ public class Main {
 	public static void main(String[] args) {
 		StateController controller = new StateController();
 		
-		// Ініціналізація бази даних
+		// Ініціналізація бази даних та загрузка стартових даних в БД
 		DaoManager.initializeRemote();
-//		DaoManager.initializeLocal();
+		DaoManager.initializeLocal();
 		
 		// Дадаємо стейти
 		controller.addState(new MainMenu());
